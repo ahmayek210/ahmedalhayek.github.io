@@ -1,24 +1,248 @@
 <!DOCTYPE html>
-<html>
+<html lang="tr">
 <head>
-    <meta charset="UTF-8">
-    <title>Ahmed Alhayek - Portfolio</title>
+  <meta charset="UTF-8">
+  <title>Ahmet Alhayek | Portfolio</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Genç yazılımcı ve robotik meraklısı Ahmet Alhayek'in kişisel portfolyosu.">
+  <link rel="stylesheet" href="styles.css">
 </head>
-<body style="font-family: Arial; background-color: #0e1117; color: white; padding: 40px;">
+<body>
+  <!-- NAVBAR -->
+  <header class="navbar">
+    <div class="container nav-inner">
+      <div class="logo">AA<span>.</span></div>
+      <nav>
+        <ul class="nav-links">
+          <li><a href="#hero">Ana Sayfa</a></li>
+          <li><a href="#about">Hakkımda</a></li>
+          <li><a href="#skills">Yetenekler</a></li>
+          <li><a href="#projects">Projeler</a></li>
+          <li><a href="#contact">İletişim</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
 
-    <h1>Welcome to My Portfolio</h1>
-    <p>Hello! I'm <strong>Ahmed Alhayek</strong>, a 15-year-old developer exploring 
-    <span style="color:#00C2FF;">AI, Robotics, and Neural Networks</span>.</p>
+  <!-- HERO -->
+  <section id="hero" class="hero">
+    <div class="container hero-inner">
+      <div class="hero-text">
+        <p class="hero-eyebrow">Genç Geliştirici · Robotik · Yapay Zekâ</p>
+        <h1>Merhaba, ben <span>Ahmet Alhayek</span>.</h1>
+        <p class="hero-subtitle">
+          15 yaşında, C++, web geliştirme ve robotik ile uğraşan bir yazılımcıyım.
+          Uzun vadeli hedefim, kendi robotumu ve yapay zekâ sistemlerimi geliştirip
+          bunları gerçek projelere dönüştürmek.
+        </p>
+        <div class="hero-actions">
+          <a href="#projects" class="btn primary">Projelerime Göz At</a>
+          <a href="#contact" class="btn ghost">Benimle İletişime Geç</a>
+        </div>
+        <div class="hero-tags">
+          <span>Arduino</span>
+          <span>ESP32</span>
+          <span>Raspberry Pi</span>
+          <span>Neural Networks</span>
+        </div>
+      </div>
 
-    <h2>Projects</h2>
-    <ul>
-        <li>Neural Network From Scratch (NumPy only)</li>
-        <li>Halbutt Emotional Robot Project</li>
-        <li>ESP32-CAM Face Recognition System</li>
-    </ul>
+      <div class="hero-card">
+        <div class="hero-card-inner">
+          <p class="hero-card-label">Şu an ne yapıyorum?</p>
+          <h2>Halbutt Robot Projesi</h2>
+          <p class="hero-card-text">
+            Kendi kişisel robotum Halbutt için yapay zekâ, ses işleme,
+            görüntü işleme ve duygusal etkileşim sistemleri tasarlıyorum.
+          </p>
+          <ul class="hero-card-list">
+            <li>• Raspberry Pi & ESP32 tabanlı mimari</li>
+            <li>• Ses tanıma ve TTS akışı</li>
+            <li>• Basit NN’leri sıfırdan yazma denemeleri</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
 
-    <h2>Skills</h2>
-    <p>Python · C++ · NumPy · AI Theory · Raspberry Pi · ESP32 · Electronics</p>
+  <!-- ABOUT -->
+  <section id="about" class="section">
+    <div class="container section-inner about-grid">
+      <div>
+        <h2>Hakkımda</h2>
+        <p>
+          Kodlamaya çok küçük yaşta, bir robot hayaliyle başladım. Önce basit devreler ve
+          Arduino projeleriyle uğraştım, sonra C++ ve web teknolojilerine geçtim.
+        </p>
+        <p>
+          Şu anda hem okul hayatımı hem de uzun vadeli robotik projelerimi birlikte
+          yürütüyorum. Özellikle yapay zekâ, sinir ağları ve insan–makine etkileşimi
+          konularına yoğun ilgi duyuyorum.
+        </p>
+      </div>
+      <div class="about-cards">
+        <div class="about-card">
+          <h3>Odak Alanlarım</h3>
+          <ul>
+            <li>Robotik & gömülü sistemler</li>
+            <li>Yapay zekâ ve sinir ağları</li>
+            <li>Web (HTML, CSS, JS)</li>
+          </ul>
+        </div>
+        <div class="about-card">
+          <h3>Hedeflerim</h3>
+          <ul>
+            <li>Kendi NN frameworkümü yazmak</li>
+            <li>Profesyonel seviyede Python & FastAPI</li>
+            <li>Robotik ve AI alanında bir şirket kurmak</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
 
+  <!-- SKILLS -->
+  <section id="skills" class="section section-alt">
+    <div class="container section-inner">
+      <h2>Yetenekler</h2>
+      <p class="section-subtitle">
+        Öğrendiğim ve aktif olarak kullandığım teknolojiler.
+      </p>
+
+      <div class="skills-grid">
+        <div class="skill-group">
+          <h3>Programlama Dilleri</h3>
+          <ul class="tag-list">
+            <li>C++</li>
+            <li>Python (öğreniyorum)</li>
+            <li>JavaScript (öğreniyorum)</li>
+            <li>Java (başlangıç)</li>
+            <li>Dart (başlangıç)</li>
+          </ul>
+        </div>
+        <div class="skill-group">
+          <h3>Web Teknolojileri</h3>
+          <ul class="tag-list">
+            <li>HTML5</li>
+            <li>CSS3 (Flexbox & Grid)</li>
+            <li>Responsive Tasarım</li>
+            <li>GitHub Pages</li>
+          </ul>
+        </div>
+        <div class="skill-group">
+          <h3>Donanım & Robotik</h3>
+          <ul class="tag-list">
+            <li>Arduino</li>
+            <li>ESP32 & ESP32-CAM</li>
+            <li>Raspberry Pi</li>
+            <li>Sensor & motor kontrol</li>
+          </ul>
+        </div>
+        <div class="skill-group">
+          <h3>İlgi Alanları</h3>
+          <ul class="tag-list">
+            <li>Neural Networks</li>
+            <li>Computer Vision</li>
+            <li>Ses işleme</li>
+            <li>Bilim kurgu & hikâye yazımı</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROJECTS -->
+  <section id="projects" class="section">
+    <div class="container section-inner">
+      <h2>Projeler</h2>
+      <p class="section-subtitle">
+        Üzerinde çalıştığım ve geliştirdiğim bazı projeler.
+      </p>
+
+      <div class="projects-grid">
+        <article class="project-card">
+          <div class="project-pill">Devam Ediyor</div>
+          <h3>Halbutt – Kişisel Robot</h3>
+          <p>
+            Duygusal etkileşime sahip, ses ve görüntü girişleriyle çalışan, 
+            çok modüllü bir robot. Ana beyin olarak Raspberry Pi, motor ve sensör 
+            kontrolü için ESP32 kullanıyorum.
+          </p>
+          <ul>
+            <li>Ses giriş/çıkış ve ekran entegrasyonu</li>
+            <li>Yüz tanıma ve basit duygusal tepki sistemi</li>
+            <li>Modüler yazılım mimarisi tasarımı</li>
+          </ul>
+        </article>
+
+        <article class="project-card">
+          <div class="project-pill">Öğrenme Projesi</div>
+          <h3>Custom Neural Network (NumPy)</h3>
+          <p>
+            Sadece NumPy kullanarak sıfırdan kendi yapay sinir ağımı yazma denemesi.
+            Amaç, kütüphaneleri kullanmadan backpropagation ve weight update mantığını
+            tamamen anlamak.
+          </p>
+          <ul>
+            <li>Forward & backward pass matematiği</li>
+            <li>Loss hesaplama ve gradient descent</li>
+            <li>Tek değişkenli regresyon denemeleri</li>
+          </ul>
+        </article>
+
+        <article class="project-card">
+          <div class="project-pill">Web</div>
+          <h3>Kişisel Portfolio & GitHub Pages</h3>
+          <p>
+            Kendi projelerimi ve hikâyemi sergilemek için hazırladığım bu portfolio,
+            HTML ve CSS kullanılarak, responsive olacak şekilde tasarlandı.
+          </p>
+          <ul>
+            <li>Temiz ve minimal tasarım</li>
+            <li>Mobil uyumlu layout</li>
+            <li>GitHub Pages üzerinden yayınlama</li>
+          </ul>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact" class="section section-alt">
+    <div class="container section-inner contact-inner">
+      <div>
+        <h2>İletişim</h2>
+        <p class="section-subtitle">
+          Projeler, işbirlikleri veya sorular için benimle iletişime geçebilirsin.
+        </p>
+
+        <ul class="contact-list">
+          <li><span>E-posta:</span> <a href="mailto:ahmet@example.com">ahmet@example.com</a></li>
+          <li><span>GitHub:</span> <a href="https://github.com/ahmayek210" target="_blank">github.com/ahmayek210</a></li>
+          <li><span>Konum:</span> Türkiye</li>
+        </ul>
+      </div>
+
+      <div class="contact-card">
+        <p class="contact-note">
+          İstersen bu alanı, kısa bir “Neden benimle çalışmalısınız?” yazısı ile
+          doldurup daha kişisel bir dokunuş ekleyebilirsin.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container footer-inner">
+      <p>© <span id="year"></span> Ahmet Alhayek. Tüm hakları saklıdır.</p>
+    </div>
+  </footer>
+
+  <script>
+    // Yılı otomatik göster
+    const yearSpan = document.getElementById("year");
+    yearSpan.textContent = new Date().getFullYear();
+  </script>
 </body>
 </html>
