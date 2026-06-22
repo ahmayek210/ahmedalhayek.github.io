@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="tr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="theme-color" content="#c89b63">
+  <title>Gizemli Soru Kutusu</title>
+  <style>
+    *{box-sizing:border-box}html,body{min-height:100%}body{margin:0;display:grid;place-items:center;padding:24px;color:#342518;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;background:radial-gradient(circle at 12% 8%,rgba(255,255,255,.3),transparent 31%),linear-gradient(145deg,#ddbd8e,#b98550)}.card{width:min(100%,430px);padding:26px 22px;border:2px solid rgba(84,52,24,.28);border-radius:10px;background:repeating-linear-gradient(9deg,rgba(255,255,255,.035) 0 2px,transparent 2px 11px),linear-gradient(145deg,#e0bf89,#cc9f68);box-shadow:0 20px 55px rgba(53,36,19,.22);text-align:center}.box{font-size:2.5rem;animation:b 1.1s ease-in-out infinite alternate}h1{margin:12px 0 6px;font-size:1.55rem}p{margin:0;color:#674c34;line-height:1.45}.track{height:8px;margin-top:18px;overflow:hidden;border-radius:999px;background:rgba(76,48,24,.17)}.bar{width:34%;height:100%;border-radius:inherit;background:#4d8fdc;animation:l 1.15s ease-in-out infinite alternate}.error{display:none;margin-top:16px;padding:12px;border-radius:8px;background:#f7d8cb;color:#7b2925;font-weight:700}.error.show{display:block}button{margin-top:12px;padding:11px 16px;border:0;border-radius:8px;color:white;background:#3478bd;font:inherit;font-weight:800;cursor:pointer}@keyframes b{to{transform:translateY(-7px) rotate(2deg)}}@keyframes l{to{transform:translateX(190%)}}
+  </style>
+</head>
+<body>
+  <main class="card">
+    <div class="box">📦</div>
+    <h1>Kutu hazırlanıyor...</h1>
+    <p>İçerideki kartlar, Pico ve gereksiz miktarda tepki yerleştiriliyor.</p>
+    <div class="track"><div class="bar"></div></div>
+    <div class="error" id="error">Kutu açılamadı. İnternet bağlantısını kontrol edip tekrar dene.<br><button onclick="location.reload()">Tekrar dene</button></div>
+  </main>
+  <script>
+    const parts=[
+      'payload/part1.b64',
+      'payload/part2.b64',
+      'payload/part3.b64',
+      'payload/part4a.b64',
+      'payload/part4b.b64'
+    ];
+
+    function decodeBase64(value){
+      const raw=atob(value.replace(/\s+/g,''));
+      const bytes=new Uint8Array(raw.length);
+      for(let i=0;i<raw.length;i++)bytes[i]=raw.charCodeAt(i);
+      return bytes;
+    }
+
+    function loadScript(src){
+      return new Promise((resolve,reject)=>{
+        const script=document.createElement('script');
+        script.src=src;
+        script.onload=resolve;
+        script.onerror=reject;
+        document.head.appendChild(script);
+      });
+    }
+
+    async function gunzip(bytes){
+      if('DecompressionStream' in window){
+        const stream=new Blob([bytes]).stream().pipeThrough(new DecompressionStream('gzip'));
+        return new TextDecoder().decode(await new Response(stream).arrayBuffer());
+      }
+      await loadScript('https://cdn.jsdelivr.net/npm/pako@2.1.0/dist/pako.min.js');
+      return window.pako.ungzip(bytes,{to:'string'});
+    }
+
+    (async()=>{
+      try{
+        const responses=await Promise.all(parts.map(path=>fetch(path,{cache:'no-store'})));
+        if(responses.some(response=>!response.ok))throw new Error('payload fetch failed');
+        const encoded=(await Promise.all(responses.map(response=>response.text()))).join('');
+        const html=await gunzip(decodeBase64(encoded));
+        document.open();
+        document.write(html);
+        document.close();
+      }catch(error){
+        console.error(error);
+        document.getElementById('error').classList.add('show');
+      }
+    })();
+  </script>
+</body>
+</html>
